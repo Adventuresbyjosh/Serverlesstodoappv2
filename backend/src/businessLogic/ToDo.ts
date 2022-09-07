@@ -4,9 +4,11 @@ import {CreateTodoRequest} from "../requests/CreateTodoRequest";
 import {UpdateTodoRequest} from "../requests/UpdateTodoRequest";
 import {TodoUpdate} from "../models/TodoUpdate";
 import {ToDoAccess} from "../dataLayer/ToDoAccess";
+import { createLogger } from '../utils/logger'
 
 const uuidv4 = require('uuid/v4');
 const toDoAccess = new ToDoAccess();
+const logger = createLogger('todos')
 
 export async function getAllToDo(jwtToken: string): Promise<TodoItem[]> {
     const userId = parseUserId(jwtToken);

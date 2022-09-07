@@ -4,8 +4,11 @@ import { DocumentClient } from "aws-sdk/clients/dynamodb";
 import { Types } from 'aws-sdk/clients/s3';
 import { TodoItem } from "../models/TodoItem";
 import { TodoUpdate } from "../models/TodoUpdate";
+import { createLogger } from '../utils/logger'
+
 
 const XAWS = AWSXRAY.captureAWS(AWS)
+const logger = createLogger('TodosAccess')
 
 const docClient = new XAWS.DynamoDB.DocumentClient()
 
